@@ -27,17 +27,29 @@ public class DestroyedOnCollision : MonoBehaviour
             && tagInList)
         {
             // Destroy if it's a Blacklist and the tag IS in the Blacklist
-            Destroy(gameObject);
+            DestroyAndScore();
         }
         else if (tagListType == TagListType.Whitelist 
             && !tagInList)
         {
             // Destroy if it's a Whitelist and the tag is NOT in the Whitelist
-            Destroy(gameObject);
+            DestroyAndScore();
         }
         else
         {
             // Use default collision code
         }
+    }
+
+    private void DestroyAndScore()
+    {
+        //check if the object being destroyed is an enemy, and if so, add to the score
+        if (gameObject.CompareTag("Enemy"))
+        {
+            Scoring.Instance?.AddScore(1);
+        }
+        
+        Destroy(gameObject);
+
     }
 }
