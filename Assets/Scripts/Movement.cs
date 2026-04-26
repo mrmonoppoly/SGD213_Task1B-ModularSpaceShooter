@@ -22,6 +22,9 @@ public class Movement : MonoBehaviour
     // For constant speed movement (e.g., enemies)
     public void MoveConstantSpeed(float speed, Vector2 direction)
     {
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
+
         rb.velocity = direction.normalized * speed;
     }
 
