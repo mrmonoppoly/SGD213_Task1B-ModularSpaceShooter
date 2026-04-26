@@ -7,7 +7,7 @@ public class ConstantSpeedController : MonoBehaviour
     [SerializeField]
     private float initialVelocity = 2f;
     [SerializeField]
-    private Vector2 direction;
+    public Vector2 direction;
     [SerializeField]
     private bool useLocalDirection = false;
     private Movement movement;
